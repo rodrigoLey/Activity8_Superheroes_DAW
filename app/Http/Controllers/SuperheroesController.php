@@ -15,7 +15,7 @@ class SuperheroesController extends Controller
      */
     public function index()
     {
-        $datos['superheroes']=superheroes::paginate(5);
+        $datos['superheroes']=superheroes::paginate(10);
         return view('superheroe.index',$datos);
     }
 
@@ -42,7 +42,8 @@ class SuperheroesController extends Controller
 
         superheroes::insert($datosSuperheroe);
 
-        return response()->json($datosSuperheroe);
+        response()->json($datosSuperheroe);
+        return redirect('/superheroe');
     }
 
     /**
@@ -61,6 +62,7 @@ class SuperheroesController extends Controller
         $superheroe=superheroes::findOrFail($id);
 
         return view('superheroe.edit', compact('superheroe'));
+
     }
 
     /**
@@ -79,7 +81,9 @@ class SuperheroesController extends Controller
         
         superheroes::where('id','=',$id)->update($datosSuperheroe);
         $superheroe=superheroes::findOrFail($id);
-        return view('superheroe.edit', compact('superheroe'));
+        view('superheroe.edit', compact('superheroe'));
+        return redirect('/superheroe');
+        
     }
 
     /**
