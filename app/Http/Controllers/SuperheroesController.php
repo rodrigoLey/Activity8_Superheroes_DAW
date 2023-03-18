@@ -56,17 +56,24 @@ class SuperheroesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(superheroes $superheroes)
+    public function edit($id)
     {
-        return view('superheroe.edit');
+        $superheroe=superheroes::findOrFail($id);
+
+        return view('superheroe.edit', compact('superheroe'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, superheroes $superheroes)
+    public function update(Request $request, $id)
     {
         //
+        $datosSuperheroe = request()->except(['_token','_method']);
+        superheroes::where('id','=',$id)->update($datosSuperheroe);
+
+        $superheroe=superheroes::findOrFail($id);
+        return view('superheroe.edit', compact('superheroe'));
     }
 
     /**

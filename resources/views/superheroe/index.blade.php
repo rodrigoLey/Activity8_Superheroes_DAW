@@ -21,7 +21,12 @@ Index Superheroe
             <td>{{ $superheroes->Nombre }}</td>
             <td>{{ $superheroes->Apellido }}</td>
             <td>{{ $superheroes->Informacion_Adicional }}</td>
-            <td>Editar | 
+            <td>
+            
+            <a href="{{ url('/superheroe/'.$superheroes->id.'/edit') }}">
+                Editar 
+            </a>
+             | 
             
             <form action="{{ url('/superheroe/'.$superheroes->id ) }}" method="post">
             @csrf
