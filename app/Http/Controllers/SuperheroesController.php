@@ -72,8 +72,10 @@ class SuperheroesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(superheroes $superheroes)
+    public function destroy($id)
     {
         //
+        superheroes::destroy($id);
+        return redirect('superheroe');
     }
 }

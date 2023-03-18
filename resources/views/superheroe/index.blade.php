@@ -21,7 +21,16 @@ Index Superheroe
             <td>{{ $superheroes->Nombre }}</td>
             <td>{{ $superheroes->Apellido }}</td>
             <td>{{ $superheroes->Informacion_Adicional }}</td>
-            <td>Editar | Borrar</td>
+            <td>Editar | 
+            
+            <form action="{{ url('/superheroe/'.$superheroes->id ) }}" method="post">
+            @csrf
+            {{ method_field('DELETE') }}
+            <input type="submit" onclick="return confirm('¿Deseas borrar este registro?')" value="Borrar">
+
+            </form>
+
+            </td>
             <td></td>
         </tr>
         @endforeach
