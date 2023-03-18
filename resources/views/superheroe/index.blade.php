@@ -16,7 +16,9 @@ Index Superheroe
         @foreach( $superheroes as $superheroes )
         <tr>
             <td>{{ $superheroes->id }}</td>
-            <td>${{ $superheroes->Foto }}</td>
+            <td>
+            <img src="{{ asset('storage').'/'.$superheroes->Foto }}" width="100" att="">
+            </td>
             <td>{{ $superheroes->Nombre_Alias }}</td>
             <td>{{ $superheroes->Nombre }}</td>
             <td>{{ $superheroes->Apellido }}</td>

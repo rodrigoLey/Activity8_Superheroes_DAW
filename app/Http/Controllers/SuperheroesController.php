@@ -70,8 +70,14 @@ class SuperheroesController extends Controller
     {
         //
         $datosSuperheroe = request()->except(['_token','_method']);
-        superheroes::where('id','=',$id)->update($datosSuperheroe);
+        if($request->hasFile('Foto')){
+            $superheroe=superheroes::findOrFail($id);
+            Storage::delete('public/'.$superheroe->Foto);
+            $datosSuperheroe['Foto']=$request->file('Foto')->store('upload','public');
+        }
 
+        
+        superheroes::where('id','=',$id)->update($datosSuperheroe);
         $superheroe=superheroes::findOrFail($id);
         return view('superheroe.edit', compact('superheroe'));
     }

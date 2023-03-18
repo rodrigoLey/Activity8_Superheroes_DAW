@@ -12,7 +12,9 @@
 <input type="text" name="Informacion_Adicional" value="{{ $superheroe->Informacion_Adicional }}" id="Informacion_Adicional" >
 <br>
 <label for="Foto"> Foto: </label>
-{{ $superheroe->Foto }}
+
+<img src="{{ asset('storage').'/'.$superheroe->Foto }}" width="100" att="">
+
 <input type="file" name="Foto" value="{{ $superheroe->Foto }}" id="Foto" >
 <br>
 <input type="submit" value="Guardar datos" >
