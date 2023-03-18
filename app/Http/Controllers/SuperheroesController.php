@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\superheroes;
 use Illuminate\Http\Request;
+use App\Http\Controllers\SuperheroesController;
+use producto\resources\views\superheroe;
 
 class SuperheroesController extends Controller
 {
@@ -12,7 +14,7 @@ class SuperheroesController extends Controller
      */
     public function index()
     {
-        //
+        return view('superheroe.index');
     }
 
     /**
@@ -20,7 +22,7 @@ class SuperheroesController extends Controller
      */
     public function create()
     {
-        //
+        return view('superheroe.create');
     }
 
     /**
@@ -44,7 +46,7 @@ class SuperheroesController extends Controller
      */
     public function edit(superheroes $superheroes)
     {
-        //
+        return view('superheroe.edit');
     }
 
     /**

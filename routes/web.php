@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SuperheroesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/superheroe/edit',[SuperheroesController::class,'edit']);
+Route::get('/superheroe/create',[SuperheroesController::class,'create']);
+Route::get('/superheroe',[SuperheroesController::class,'index']);
