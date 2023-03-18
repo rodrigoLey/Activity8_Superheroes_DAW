@@ -1,21 +1,21 @@
 <br>
 <label for="Nombre_Alias"> Nombre Alias: </label>
-<input type="text" name="Nombre_Alias" value="{{ $superheroe->Nombre_Alias }}" id="Nombre_Alias" >
+<input type="text" name="Nombre_Alias" value="{{ isset($superheroe->Nombre_Alias)?$superheroe->Nombre_Alias:'' }}" id="Nombre_Alias" >
 <br>
 <label for="Nombre"> Nombre: </label>
-<input type="text" name="Nombre" value="{{ $superheroe->Nombre }}" id="Nombre" >
+<input type="text" name="Nombre" value="{{ isset($superheroe->Nombre)?$superheroe->Nombre:'' }}" id="Nombre" >
 <br>
 <label for="Apellido"> Apellido: </label>
-<input type="text" name="Apellido" value="{{ $superheroe->Apellido }}" id="Apellido" >
+<input type="text" name="Apellido" value="{{ isset($superheroe->Apellido)?$superheroe->Apellido:'' }}" id="Apellido" >
 <br>
 <label for="Informacion_Adicional"> Informacion Adicional: </label>
-<input type="text" name="Informacion_Adicional" value="{{ $superheroe->Informacion_Adicional }}" id="Informacion_Adicional" >
+<input type="text" name="Informacion_Adicional" value="{{ isset($superheroe->Informacion_Adicional)?$superheroe->Informacion_Adicional:'' }}" id="Informacion_Adicional" >
 <br>
 <label for="Foto"> Foto: </label>
-
+@if(isset($superheroe->Foto))
 <img src="{{ asset('storage').'/'.$superheroe->Foto }}" width="100" att="">
-
-<input type="file" name="Foto" value="{{ $superheroe->Foto }}" id="Foto" >
+@endif
+<input type="file" name="Foto" value="" id="Foto" >
 <br>
 <input type="submit" value="Guardar datos" >
 <br>
