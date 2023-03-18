@@ -18,6 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/superheroe/edit',[SuperheroesController::class,'edit']);
-Route::get('/superheroe/create',[SuperheroesController::class,'create']);
-Route::get('/superheroe',[SuperheroesController::class,'index']);
+//Route::get('/superheroe/edit',[SuperheroesController::class,'edit']);
+//Route::get('/superheroe/create',[SuperheroesController::class,'create']);
+//Route::get('/superheroe',[SuperheroesController::class,'index']);
+
+Route::resource('superheroe',SuperheroesController::class);
