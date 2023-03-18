@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\superheroes;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Controllers\SuperheroesController;
-use producto\resources\views\superheroe;
+use Illuminate\Support\Facades\Storage;
 
 class SuperheroesController extends Controller
 {
@@ -14,7 +15,8 @@ class SuperheroesController extends Controller
      */
     public function index()
     {
-        return view('superheroe.index');
+        $datos['superheroes']=superheroes::paginate(5);
+        return view('superheroe.index',$datos);
     }
 
     /**
