@@ -31,6 +31,16 @@ class SuperheroesController extends Controller
     public function store(Request $request)
     {
         //
+        $datosSuperheroe = request()->except('_token');
+
+        if($request->hasFile('Foto')){
+            $datosSuperheroe['Foto']=$request->file('Foto')->store('upload','public');
+
+        }
+
+        superheroes::insert($datosSuperheroe);
+
+        return response()->json($datosSuperheroe);
     }
 
     /**
