@@ -1,3 +1,4 @@
+<h1> {{ $modo }} Superheroe </h1>
 <br>
 <label for="Nombre_Alias"> Nombre Alias: </label>
 <input type="text" name="Nombre_Alias" value="{{ isset($superheroe->Nombre_Alias)?$superheroe->Nombre_Alias:'' }}" id="Nombre_Alias" >
@@ -17,7 +18,7 @@
 @endif
 <input type="file" name="Foto" value="" id="Foto" >
 <br>
-<input type="submit" value="Guardar datos" >
+<input type="submit" value="{{ $modo }} datos" >
 
 <a href="{{ url('superheroe/') }}"> Regresar </a>
 

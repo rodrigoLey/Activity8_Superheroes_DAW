@@ -4,7 +4,7 @@ Formulario de edicion de superheroes
 @csrf
 {{ method_field('PATCH') }}
 
-@include('superheroe.form');
+@include('superheroe.form', ['modo'=>'Editar'] );
 
 </form>
 

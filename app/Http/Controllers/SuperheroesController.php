@@ -43,7 +43,7 @@ class SuperheroesController extends Controller
         superheroes::insert($datosSuperheroe);
 
         response()->json($datosSuperheroe);
-        return redirect('/superheroe')->with('mensaje','Superheroe agregado con exito.');
+        return redirect('/superheroe')->with('mensaje','Superheroe Agregado con exito.');
     }
 
     /**
@@ -100,6 +100,6 @@ class SuperheroesController extends Controller
         }
 
         
-        return redirect('superheroe');
+        return redirect('superheroe')->with('mensaje','Superheroe Borrado con exito.');
     }
 }
