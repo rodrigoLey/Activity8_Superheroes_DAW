@@ -92,7 +92,14 @@ class SuperheroesController extends Controller
     public function destroy($id)
     {
         //
-        superheroes::destroy($id);
+        $superheroe=superheroes::findOrFail($id);
+
+        if(Storage::delete('public/'.$superheroe->Foto)){
+            
+            superheroes::destroy($id);
+        }
+
+        
         return redirect('superheroe');
     }
 }
