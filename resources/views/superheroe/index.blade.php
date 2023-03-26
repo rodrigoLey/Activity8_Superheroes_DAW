@@ -1,5 +1,10 @@
 Mostrar Superheroes
 <br>
+@if(Session::has('mensaje'))
+{{ Session::get('mensaje') }}
+
+@endif
+<br>
 <a href="{{ url('superheroe/create') }}"> Registrar nuevo superheroe </a>
 <table class="table table-light">
     <thead class="thead-light">

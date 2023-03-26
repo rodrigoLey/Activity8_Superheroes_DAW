@@ -43,7 +43,7 @@ class SuperheroesController extends Controller
         superheroes::insert($datosSuperheroe);
 
         response()->json($datosSuperheroe);
-        return redirect('/superheroe');
+        return redirect('/superheroe')->with('mensaje','Superheroe agregado con exito.');
     }
 
     /**
@@ -95,7 +95,7 @@ class SuperheroesController extends Controller
         $superheroe=superheroes::findOrFail($id);
 
         if(Storage::delete('public/'.$superheroe->Foto)){
-            
+
             superheroes::destroy($id);
         }
 
