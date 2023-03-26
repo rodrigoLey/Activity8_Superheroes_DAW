@@ -15,11 +15,21 @@ use App\Http\Controllers\SuperheroesController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 //Route::get('/superheroe/edit',[SuperheroesController::class,'edit']);
 //Route::get('/superheroe/create',[SuperheroesController::class,'create']);
 //Route::get('/superheroe',[SuperheroesController::class,'index']);
 
-Route::resource('superheroe',SuperheroesController::class);
+Route::resource('superheroe',SuperheroesController::class)->middleware('auth');
+Auth::routes(['register'=>false,'reset'=>false]);
+
+Route::get('/home', [SuperheroesController::class, 'index'])->name('home');
+
+
+
+Route::group(['middleware' => 'auth'], function (){
+
+    Route::get('/', [SuperheroesController::class, 'index'])->name('home');
+});

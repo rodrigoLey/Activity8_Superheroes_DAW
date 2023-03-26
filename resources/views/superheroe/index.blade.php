@@ -1,4 +1,6 @@
-Mostrar Superheroes
+@extends('layouts.app')
+@section('content')
+<div class="container">
 <br>
 @if(Session::has('mensaje'))
 {{ Session::get('mensaje') }}
@@ -52,3 +54,5 @@ Mostrar Superheroes
     </tbody>
 
 </table>
+</div>
+@endsection
