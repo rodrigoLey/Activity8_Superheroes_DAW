@@ -1,6 +1,28 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+nav.navbar.navbar-expand-md.navbar-light.bg-white.shadow-sm{
+    background-color: black !important; 
+    font-weight: bolder !important;
+}
+a.navbar-brand{
+    color: yellow !important;
+}
+a.nav-link{
+    color: yellow !important;
+}
+
+body{
+    background-color: gray;
+    background-image: url("https://media.giphy.com/media/10ADhj1QPawFna/giphy.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+div.row.justify-content-center{
+    padding-top: 250px;
+}
+</style>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
